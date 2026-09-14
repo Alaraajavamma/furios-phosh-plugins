@@ -1,0 +1,97 @@
+phosh-camera-lockscreen {
+  background-color: @phosh_notification_bg_color;
+  border-radius: 12px;
+  padding: 8px;
+}
+
+phosh-camera-lockscreen .viewfinder {
+  background-color: black;
+  border-radius: 12px;
+}
+
+phosh-camera-lockscreen button {
+  outline: none;
+}
+
+phosh-camera-lockscreen .start-button,
+phosh-camera-lockscreen .start-button:hover,
+phosh-camera-lockscreen .start-button:focus,
+phosh-camera-lockscreen .start-button:active {
+  background: none;
+  background-image: none;
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+phosh-camera-lockscreen .circular {
+  background-color: alpha(black, 0.45);
+  background-image: none;
+  color: white;
+  border: none;
+  padding: 0;
+  outline: none;
+}
+
+phosh-camera-lockscreen .circular:active {
+  background-color: alpha(black, 0.7);
+}
+
+phosh-camera-lockscreen .circular:disabled {
+  color: alpha(white, 0.4);
+}
+
+phosh-camera-lockscreen .shutter-button {
+  outline: none;
+}
+
+phosh-camera-lockscreen .shutter-button {
+  border-radius: 9999px;
+  background-color: white;
+  background-image: none;
+  color: black;
+  padding: 0;
+  border: 4px solid #dedede;
+}
+
+phosh-camera-lockscreen .shutter-button:active {
+  background-color: #cccccc;
+}
+
+phosh-camera-lockscreen .record-button {
+  border-radius: 9999px;
+  background-color: #e01b24;
+  background-image: none;
+  color: white;
+  padding: 0;
+  border: 4px solid #dedede;
+}
+
+phosh-camera-lockscreen .record-button:active,
+phosh-camera-lockscreen .record-button.recording {
+  background-color: #a51d2d;
+}
+
+phosh-camera-lockscreen .mode-toggle:checked {
+  background-color: #e01b24;
+  background-image: none;
+  color: white;
+}
+
+phosh-camera-lockscreen .light-toggle:checked {
+  background-color: @theme_selected_bg_color;
+  background-image: none;
+  color: @theme_selected_fg_color;
+}
+
+phosh-camera-lockscreen .recording-badge {
+  background-color: alpha(black, 0.55);
+  border-radius: 9999px;
+  padding: 4px 10px;
+  color: white;
+}
+
+phosh-camera-lockscreen .recording-dot {
+  background-color: #e01b24;
+  border-radius: 9999px;
+}

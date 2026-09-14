@@ -1,0 +1,8 @@
+[Plugin]
+# Translators: This is an internal id, no need to translate it
+Id=@name@
+Name=Camera
+Types=lockscreen;
+Comment=Take a photo or video from the lock screen
+Plugin=@plugins_dir@/libphosh-plugin-@name@.so
+Icon=camera-photo

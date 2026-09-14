@@ -6,6 +6,8 @@ Build-Depends: debhelper-compat (= 13),
                libphosh-0.45-dev,
                libgweather-4-dev,
                libgeoclue-2-dev,
+               libgstreamer1.0-dev,
+               libgstreamer-plugins-base1.0-dev,
                meson,
 Standards-Version: 4.7.2
 Vcs-Browser: https://github.com/furilabs/furios-phosh-plugins
@@ -15,5 +17,9 @@ Package: furios-phosh-plugins
 Architecture: any
 Pre-Depends: phosh-plugins
 Depends: ${misc:Depends},
-         ${shlibs:Depends}
+         ${shlibs:Depends},
+         gstreamer1.0-libav,
+         gstreamer1.0-pipewire,
+         gstreamer1.0-plugins-base,
+         gstreamer1.0-plugins-good
 Description: Phosh plugins for FuriOS

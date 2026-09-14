@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk+" version="3.24"/>
+  <template class="PhoshCameraLockscreen" parent="GtkBox">
+    <property name="orientation">vertical</property>
+    <property name="margin-start">12</property>
+    <property name="margin-top">12</property>
+    <property name="margin-end">12</property>
+    <property name="margin-bottom">12</property>
+    <child>
+      <object class="GtkStack" id="stack">
+        <property name="visible">1</property>
+        <property name="vexpand">1</property>
+        <property name="transition-type">crossfade</property>
+        <child>
+          <object class="GtkButton" id="start_button">
+            <property name="visible">1</property>
+            <property name="vexpand">1</property>
+            <signal name="clicked" handler="on_start_clicked" swapped="yes"/>
+            <style>
+              <class name="flat"/>
+              <class name="start-button"/>
+            </style>
+            <child>
+              <object class="GtkBox">
+                <property name="visible">1</property>
+                <property name="orientation">vertical</property>
+                <property name="valign">center</property>
+                <property name="spacing">12</property>
+                <child>
+                  <object class="GtkImage">
+                    <property name="visible">1</property>
+                    <property name="icon-name">camera-photo-symbolic</property>
+                    <property name="pixel-size">48</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="visible">1</property>
+                    <property name="label" translatable="yes">Camera</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="name">idle</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkSpinner">
+            <property name="visible">1</property>
+            <property name="active">1</property>
+            <property name="halign">center</property>
+            <property name="valign">center</property>
+            <property name="width-request">32</property>
+            <property name="height-request">32</property>
+          </object>
+          <packing>
+            <property name="name">starting</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="visible">1</property>
+            <property name="orientation">vertical</property>
+            <child>
+              <object class="GtkOverlay" id="viewfinder">
+                <property name="visible">1</property>
+                <property name="vexpand">1</property>
+                <child>
+                  <object class="GtkDrawingArea" id="preview">
+                    <property name="visible">1</property>
+                    <property name="vexpand">1</property>
+                    <property name="hexpand">1</property>
+                    <signal name="draw" handler="on_preview_draw" swapped="yes"/>
+                  </object>
+                </child>
+                <child type="overlay">
+                  <object class="GtkBox" id="recording_badge">
+                    <property name="visible">0</property>
+                    <property name="no-show-all">1</property>
+                    <property name="halign">center</property>
+                    <property name="valign">start</property>
+                    <property name="margin-top">12</property>
+                    <property name="spacing">8</property>
+                    <style>
+                      <class name="recording-badge"/>
+                    </style>
+                    <child>
+                      <object class="GtkBox">
+                        <property name="visible">1</property>
+                        <property name="valign">center</property>
+                        <property name="width-request">12</property>
+                        <property name="height-request">12</property>
+                        <style>
+                          <class name="recording-dot"/>
+                        </style>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="timer_label">
+                        <property name="visible">1</property>
+                        <property name="label">0:00</property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkBox">
+                <property name="visible">1</property>
+                <property name="halign">center</property>
+                <property name="spacing">16</property>
+                <property name="margin-bottom">6</property>
+                <child>
+                  <object class="GtkToggleButton" id="light">
+                    <property name="visible">1</property>
+                    <property name="width-request">48</property>
+                    <property name="height-request">48</property>
+                    <property name="valign">center</property>
+                    <signal name="toggled" handler="on_light_toggled" swapped="yes"/>
+                    <style>
+                      <class name="circular"/>
+                      <class name="light-toggle"/>
+                    </style>
+                    <child>
+                      <object class="GtkImage" id="light_icon">
+                        <property name="visible">1</property>
+                        <property name="icon-name">flashlight-symbolic</property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkButton" id="shutter">
+                    <property name="visible">1</property>
+                    <property name="width-request">72</property>
+                    <property name="height-request">72</property>
+                    <property name="valign">center</property>
+                    <signal name="clicked" handler="on_shutter_clicked" swapped="yes"/>
+                    <style>
+                      <class name="shutter-button"/>
+                    </style>
+                    <child>
+                      <object class="GtkImage" id="shutter_icon">
+                        <property name="visible">1</property>
+                        <property name="icon-name">camera-photo-symbolic</property>
+                        <property name="pixel-size">28</property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkToggleButton" id="mode">
+                    <property name="visible">1</property>
+                    <property name="width-request">48</property>
+                    <property name="height-request">48</property>
+                    <property name="valign">center</property>
+                    <signal name="toggled" handler="on_mode_toggled" swapped="yes"/>
+                    <style>
+                      <class name="circular"/>
+                      <class name="mode-toggle"/>
+                    </style>
+                    <child>
+                      <object class="GtkImage">
+                        <property name="visible">1</property>
+                        <property name="icon-name">camera-video-symbolic</property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkButton" id="camera_switch">
+                    <property name="visible">1</property>
+                    <property name="width-request">48</property>
+                    <property name="height-request">48</property>
+                    <property name="valign">center</property>
+                    <signal name="clicked" handler="on_camera_switch_clicked" swapped="yes"/>
+                    <style>
+                      <class name="circular"/>
+                    </style>
+                    <child>
+                      <object class="GtkImage">
+                        <property name="visible">1</property>
+                        <property name="icon-name">camera-switch-symbolic</property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="name">camera</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="visible">1</property>
+            <property name="orientation">vertical</property>
+            <property name="valign">center</property>
+            <property name="spacing">12</property>
+            <child>
+              <object class="GtkImage">
+                <property name="visible">1</property>
+                <property name="icon-name">camera-disabled-symbolic</property>
+                <property name="pixel-size">48</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel">
+                <property name="visible">1</property>
+                <property name="label" translatable="yes">Camera unavailable</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton">
+                <property name="visible">1</property>
+                <property name="label" translatable="yes">Try Again</property>
+                <property name="halign">center</property>
+                <signal name="clicked" handler="on_start_clicked" swapped="yes"/>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="name">error</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>
